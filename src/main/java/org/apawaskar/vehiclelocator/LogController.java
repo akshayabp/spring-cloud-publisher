@@ -22,7 +22,7 @@ public class LogController {
 	@RequestMapping(value="/log-feed",  method=RequestMethod.POST, consumes="application/json")
 	public void createLog(@RequestBody String log){
 		
-		LOGGER.debug("Entering LogController");
+		LOGGER.info("Recieved log-feed: {}", log);
 		source.publishLogs().send(MessageBuilder.withPayload(log).build());
 	}
 	
